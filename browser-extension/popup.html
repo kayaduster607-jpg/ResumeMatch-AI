@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 420px;
+      max-height: 560px;
+      font-family: -apple-system, "Microsoft YaHei", sans-serif;
+      font-size: 13px;
+      color: #333;
+      background: #f8f9fa;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .header {
+      background: linear-gradient(135deg, #4f46e5, #7c3aed);
+      color: #fff;
+      padding: 12px 16px;
+      flex-shrink: 0;
+    }
+    .header h1 { font-size: 15px; font-weight: 600; }
+    .header p { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+    .search-bar {
+      padding: 10px 16px;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+      flex-shrink: 0;
+    }
+    .search-row { display: flex; gap: 6px; margin-bottom: 6px; }
+    .search-row input, .search-row select {
+      padding: 7px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 12px;
+      outline: none;
+    }
+    .search-row input:focus, .search-row select:focus { border-color: #4f46e5; }
+    .search-row input[type="text"] { flex: 1; }
+    .search-row select { width: 80px; }
+    .btn {
+      padding: 7px 14px;
+      border: none;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-primary { background: #4f46e5; color: #fff; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-primary:disabled { background: #a5b4fc; cursor: not-allowed; }
+    .btn-sm { padding: 4px 10px; font-size: 11px; }
+    .btn-success { background: #059669; color: #fff; }
+    .btn-success:hover { background: #047857; }
+    .btn-outline { background: #fff; color: #4f46e5; border: 1px solid #ddd; }
+    .btn-outline:hover { background: #f5f3ff; }
+
+    .content { flex: 1; overflow-y: auto; padding: 0; }
+
+    .login-hint {
+      text-align: center;
+      padding: 40px 20px;
+      color: #888;
+    }
+    .login-hint a { color: #4f46e5; text-decoration: none; }
+
+    .job-list { padding: 8px 12px; }
+    .job-card {
+      background: #fff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      transition: border-color 0.15s;
+    }
+    .job-card:hover { border-color: #a5b4fc; }
+    .job-card.imported { border-color: #6ee7b7; background: #f0fdf4; }
+    .job-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #1e1b4b;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .job-title .salary { color: #ef4444; font-weight: 500; font-size: 13px; }
+    .job-meta {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 4px;
+    }
+    .job-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+    .job-tags span {
+      font-size: 10px;
+      padding: 2px 6px;
+      background: #f3f4f6;
+      border-radius: 3px;
+      color: #555;
+    }
+    .job-actions {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .jd-preview {
+      margin-top: 6px;
+      padding: 8px;
+      background: #fafafa;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #555;
+      white-space: pre-wrap;
+      max-height: 150px;
+      overflow-y: auto;
+      line-height: 1.5;
+    }
+
+    .footer {
+      padding: 8px 16px;
+      background: #fff;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .footer-left { font-size: 11px; color: #888; }
+    .footer-right { display: flex; gap: 6px; }
+
+    .msg {
+      text-align: center;
+      padding: 8px;
+      font-size: 12px;
+      border-radius: 6px;
+      margin: 6px 12px;
+    }
+    .msg-ok { background: #ecfdf5; color: #065f46; }
+    .msg-err { background: #fef2f2; color: #991b1b; }
+    .msg-warn { background: #fffbeb; color: #92400e; }
+    .msg-info { background: #eff6ff; color: #1e40af; }
+
+    .spinner {
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid #ddd;
+      border-top-color: #4f46e5;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .settings-panel {
+      padding: 10px 16px;
+      background: #fff;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .settings-panel label { font-size: 11px; color: #666; display: block; margin-bottom: 3px; }
+    .settings-panel input {
+      width: 100%;
+      padding: 6px 8px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 12px;
+    }
+    .settings-panel input:focus { outline: none; border-color: #4f46e5; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>招聘 → 简历匹配</h1>
+    <p>支持多平台搜索岗位，一键获取 JD 发送到分析系统</p>
+  </div>
+
+  <!-- 搜索栏 -->
+  <div class="search-bar">
+    <div class="search-row">
+      <select id="platform" style="width:100px;">
+        <option value="boss">BOSS 直聘</option>
+        <option value="zhaopin">智联招聘</option>
+        <option value="liepin">猎聘</option>
+        <option value="qiancheng">前程无忧</option>
+      </select>
+      <input id="keyword" type="text" placeholder="搜索职位，如：Python 后端" />
+    </div>
+    <div class="search-row">
+      <select id="city"></select>
+      <select id="jobType">
+        <option value="">全部类型</option>
+        <option value="1">全职</option>
+        <option value="2">实习</option>
+      </select>
+      <select id="experience">
+        <option value="">经验不限</option>
+        <option value="108">在校生</option>
+        <option value="102">应届生</option>
+        <option value="103">1-3年</option>
+        <option value="105">3-5年</option>
+        <option value="106">5-10年</option>
+        <option value="107">10年以上</option>
+      </select>
+      <select id="degree">
+        <option value="">学历不限</option>
+        <option value="203">大专</option>
+        <option value="204">本科</option>
+        <option value="205">硕士</option>
+        <option value="206">博士</option>
+      </select>
+      <button id="btn-search" class="btn btn-primary" style="flex:1;">搜索</button>
+    </div>
+  </div>
+
+  <!-- 设置面板 -->
+  <div id="settings-panel" class="settings-panel" style="display:none;">
+    <label>后端 API 地址</label>
+    <input id="api-url" type="text" placeholder="http://localhost:8000" />
+  </div>
+
+  <!-- 内容区 -->
+  <div id="msg-area"></div>
+  <div id="content" class="content">
+    <div class="login-hint">
+      选择招聘平台，输入关键词搜索岗位，然后一键导入系统
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <div class="footer">
+    <span id="footer-left" class="footer-left">就绪</span>
+    <div class="footer-right">
+      <button id="btn-open-tab" class="btn btn-outline btn-sm" title="在标签页中打开，不会因点击外部而关闭">↗ 标签页</button>
+      <button id="btn-settings" class="btn btn-outline btn-sm">⚙ 设置</button>
+      <button id="btn-import-all" class="btn btn-success btn-sm" style="display:none;">全部导入系统</button>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

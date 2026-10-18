@@ -1,0 +1,32 @@
+李明
+13800000000
+demo@example.com
+北京
+
+教育经历
+2021.09 - 2025.06  XX大学  计算机科学与技术  本科
+
+技能栈
+Python, FastAPI, MySQL, Redis, Docker, Git, React, TypeScript, Linux
+
+项目经历
+
+项目一：AI 简历匹配系统
+技术栈：Python, FastAPI, MySQL, React, sentence-transformers
+2024.03 - 2024.06
+角色：后端开发
+描述：为了解决求职者简历与岗位匹配度难以量化评估的问题，独立设计并开发了基于规则评分与语义匹配的简历分析系统。使用 PyMuPDF 解析 PDF 简历，通过正则表达式和 LLM 实现结构化信息抽取。设计了四维度加权评分模型（技能匹配 40%、项目相关性 25%、语义相似度 20%、硬性要求 15%），支持 200+ 技能别名归一化。开发了 15+ 个 RESTful API 接口，使用 Pydantic v2 进行请求校验，平均响应时间 < 200ms。前端使用 React + TypeScript + Tailwind CSS 实现报告可视化。
+
+项目二：智能问答助手
+技术栈：Python, FastAPI, LangChain, Chroma, OpenAI API
+2024.07 - 2024.09
+角色：全栈开发
+描述：基于 RAG 架构开发的文档问答系统。使用 LangChain 构建检索增强生成流程，Chroma 作为向量数据库存储文档 Embedding。实现了文档上传、分块、向量化、检索、生成的完整链路。后端使用 FastAPI 开发，支持流式输出。前端使用 React 实现对话界面。系统支持 PDF、Markdown 等格式文档，日均处理 200+ 次问答请求。
+
+实习经历
+
+某科技公司 | 后端开发实习生 | 2024.07 - 2024.09
+- 参与公司内部工具平台的后端开发，使用 Python + FastAPI
+- 负责用户权限模块的接口设计与实现，支持 RBAC 权限模型
+- 优化了 3 个慢查询接口，平均响应时间从 800ms 降低到 150ms
+- 编写了 30+ 个单元测试，覆盖核心业务逻辑

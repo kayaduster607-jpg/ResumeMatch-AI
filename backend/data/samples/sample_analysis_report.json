@@ -1,0 +1,60 @@
+{
+  "task_id": 1,
+  "total_score": 72.5,
+  "match_level": "较匹配",
+  "one_sentence_conclusion": "综合匹配度 72.5 分（较匹配），命中 6 项核心技能，缺少 2 项技能，有 2 个高优先级问题需解决。",
+  "score_detail": {
+    "skill_score": 76.0,
+    "skill_reason": "命中 5/7 个必备技能，命中 1/1 个加分技能",
+    "project_score": 68.0,
+    "project_reason": "共 2 个项目，有量化指标，有具体技术动作",
+    "semantic_score": 72.0,
+    "semantic_reason": "简历与 JD 文本相似度: 0.720",
+    "requirement_score": 100.0,
+    "requirement_reason": "满足 1/1 项硬性要求"
+  },
+  "matched_skills": ["Python", "FastAPI", "MySQL", "Docker", "Git", "Linux"],
+  "missing_skills": ["Redis"],
+  "problems": [
+    {
+      "type": "missing_required_skill",
+      "severity": "high",
+      "title": "缺少必备技能: Redis",
+      "evidence": "JD 要求具备 [Redis] 技能，简历中未找到相关描述",
+      "reason": "该技能是岗位核心要求，缺失会直接影响简历筛选通过率",
+      "suggestion": "如果你掌握 Redis，请在技能栏或项目经历中补充；如果尚未掌握，建议尽快学习并在简历中体现学习成果",
+      "rewrite_example": "技能栏添加: Redis | 项目描述中补充: 使用 Redis 实现了缓存层..."
+    },
+    {
+      "type": "skill_not_reflected_in_project",
+      "severity": "medium",
+      "title": "技能栈未在项目中体现",
+      "evidence": "以下技能在简历技能栏列出，但在项目经历中没有体现: Git",
+      "reason": "只列技能名称没有说服力，面试官会怀疑你是否真正使用过这些技术",
+      "suggestion": "在项目描述中补充这些技术的具体使用场景",
+      "rewrite_example": "在相关项目中补充: 使用 Git 进行版本管理，采用 Git Flow 工作流..."
+    }
+  ],
+  "suggestions": [
+    {
+      "category": "missing_required_skill",
+      "suggestion": "如果你掌握 Redis，请在技能栏或项目经历中补充；如果尚未掌握，建议尽快学习并在简历中体现学习成果"
+    },
+    {
+      "category": "skill_not_reflected_in_project",
+      "suggestion": "在项目描述中补充这些技术的具体使用场景"
+    }
+  ],
+  "next_steps": [
+    {
+      "priority": 1,
+      "action": "如果你掌握 Redis，请在技能栏或项目经历中补充；如果尚未掌握，建议尽快学习并在简历中体现学习成果",
+      "reason": "[高优先级] 缺少必备技能: Redis"
+    },
+    {
+      "priority": 2,
+      "action": "在项目描述中补充这些技术的具体使用场景",
+      "reason": "[中优先级] 技能栈未在项目中体现"
+    }
+  ]
+}

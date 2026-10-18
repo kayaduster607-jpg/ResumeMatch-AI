@@ -1,0 +1,27 @@
+AI 应用开发实习生
+
+公司：某人工智能公司
+工作地点：上海
+
+岗位职责：
+1. 参与 AI 应用的后端开发，包括大模型 API 集成和 Prompt 工程
+2. 负责 RAG（检索增强生成）系统的开发和优化
+3. 参与向量数据库的选型和集成
+4. 开发 AI 应用的 RESTful API 接口
+5. 参与模型效果评估和 Prompt 迭代
+
+任职要求：
+1. 本科及以上学历，计算机、人工智能相关专业
+2. 熟悉 Python，有良好的编程基础
+3. 了解大语言模型（LLM）的基本原理和使用方式
+4. 了解 RAG、Embedding、向量数据库等概念
+5. 熟悉至少一个后端框架（FastAPI/Django/Flask）
+6. 了解 MySQL 或 PostgreSQL
+7. 具备良好的学习能力和文档能力
+
+加分项：
+- 有 LangChain、LlamaIndex 等框架使用经验
+- 有 Chroma、FAISS、Milvus 等向量数据库使用经验
+- 了解 Prompt Engineering 技巧
+- 有 PyTorch 或 TensorFlow 使用经验
+- 有开源项目贡献经验

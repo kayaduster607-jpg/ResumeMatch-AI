@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+venv/
+.venv/
+*.egg
+
+# Environment
+.env
+.env.local
+.env.*
+**/.env*
+
+# Private browser profiles, cookies, and crawler exports
+.job_browser/
+.job_crawler/
+outputs/
+*.log
+*.zip
+
+# Local tools, historical snapshots, and personal documents
+.claude/
+.jbeval/
+saved_versions/
+temp_extract/
+report_word/
+*.docx
+.pytest_cache/
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite3
+
+# Uploads
+uploads/
+*.pdf

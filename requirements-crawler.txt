@@ -1,0 +1,4 @@
+# Standalone crawler runtime
+# Install backend/requirements.txt first if you want to reuse the full ResumeMatch scoring engine.
+playwright>=1.44,<2
+openpyxl>=3.1,<4

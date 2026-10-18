@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "招聘 → 简历匹配",
+  "version": "3.7.0",
+  "description": "支持 BOSS直聘、智联招聘、猎聘、前程无忧，一键搜索岗位并导入简历匹配系统",
+  "permissions": ["activeTab", "scripting", "storage", "tabs"],
+  "host_permissions": [
+    "https://www.zhipin.com/*",
+    "https://sou.zhaopin.com/*",
+    "https://www.zhaopin.com/*",
+    "https://fe-api.zhaopin.com/*",
+    "https://jobs.zhaopin.com/*",
+    "https://www.liepin.com/*",
+    "https://api-c.liepin.com/*",
+    "https://api.liepin.com/*",
+    "https://search.51job.com/*",
+    "https://www.51job.com/*",
+    "https://we.51job.com/*",
+    "https://api.51job.com/*",
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.zhipin.com/*",
+        "https://sou.zhaopin.com/*",
+        "https://www.zhaopin.com/*",
+        "https://www.liepin.com/*",
+        "https://search.51job.com/*",
+        "https://www.51job.com/*",
+        "https://we.51job.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}

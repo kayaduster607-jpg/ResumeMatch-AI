@@ -1,0 +1,15 @@
+{
+  "resume": "backend/data/samples/sample_resume.txt",
+  "keyword": "AI开发实习生",
+  "city": "广州",
+  "platforms": "all",
+  "pages": 1,
+  "per_platform_limit": 60,
+  "total_limit": 200,
+  "top": 50,
+  "min_score": 50,
+  "state": ".job_crawler/state.json",
+  "out": "outputs/job_crawler",
+  "strict_city": true,
+  "fetch_detail": true
+}
